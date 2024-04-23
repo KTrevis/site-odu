@@ -32,12 +32,13 @@ export default function MyMap() {
 		setHoverInfo(hoveredFeature && {feature: hoveredFeature, x, y});
 	}, []);
 
+	async function fetchData() {
+		const res = await fetch("/contours.json")
+		setAllData(await res.json())
+	}
+
 	useEffect(() => {
-		fetch("contours.json")
-		  .then(resp => resp.json())
-		  .then(json => {
-			setAllData(json)
-		})
+		fetchData()
 	}, []);
 
   	return (
