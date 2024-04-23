@@ -33,7 +33,7 @@ export default function MyMap() {
 	}, []);
 
 	async function fetchData() {
-		const res = await fetch("/public/contours.json")
+		const res = await fetch("/contours.json")
 		setAllData(await res.json())
 	}
 
